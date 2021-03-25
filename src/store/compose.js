@@ -61,11 +61,11 @@ export default {
                     propValue: components,
                 },
             })
-            
+
             eventBus.$emit('hideArea')
 
             store.commit('batchDeleteComponent', areaData.components)
-            store.commit('setCurComponent', { 
+            store.commit('setCurComponent', {
                 component: componentData[componentData.length - 1],
                 index: componentData.length - 1,
             })

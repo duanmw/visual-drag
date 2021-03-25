@@ -1,7 +1,15 @@
-[*.{js,jsx,ts,tsx,vue}]
+# http://editorconfig.org
+# https://www.jianshu.com/p/00ac7bd5e74e
+root = true
+
+[*]
+charset = utf-8
 indent_style = space
-indent_size = 4
+indent_size = 2
 end_of_line = lf
-trim_trailing_whitespace = true
 insert_final_newline = true
-max_line_length = 120
+trim_trailing_whitespace = true
+
+[*.md]
+insert_final_newline = false
+trim_trailing_whitespace = false
