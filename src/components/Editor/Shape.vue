@@ -114,6 +114,7 @@ export default {
       // 如果元素没有移动，则不保存快照
       let hasMove = false;
       const move = moveEvent => {
+        this.$store.commit("setDragRotating", true);//旋转中
         hasMove = true;
         const curX = moveEvent.clientX;
         const curY = moveEvent.clientY;
@@ -127,6 +128,7 @@ export default {
       };
 
       const up = () => {
+        this.$store.commit("setDragRotating", false); //停止旋转
         hasMove && this.$store.commit("recordSnapshot");
         document.removeEventListener("mousemove", move);
         document.removeEventListener("mouseup", up);
@@ -307,10 +309,6 @@ export default {
 
       const needLockProportion = this.isNeedLockProportion();
       const move = moveEvent => {
-        console.log(
-          "🚀 ~ file: Shape.vue ~ line 297 ~ move ~ moveEvent",
-          moveEvent.clientX
-        );
         // 第一次点击时也会触发 move，所以会有“刚点击组件但未移动，组件的大小却改变了”的情况发生
         // 因此第一次点击时不触发 move 事件
         if (isFirst) {
@@ -372,39 +370,40 @@ export default {
   &:hover {
     cursor: move;
   }
-}
-.active {
-  outline: 1px solid #70c0ff;
-  user-select: none;
-}
-.shape-point {
-  position: absolute;
-  background: #fff;
-  border: 1px solid #59c7f9;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.icon-xiangyouxuanzhuan {
-  position: absolute;
-  top: -34px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: grab;
-  color: #59c7f9;
-  font-size: 20px;
-  font-weight: 600;
 
-  &:active {
-    cursor: grabbing;
+  &.active {
+    outline: 1px solid rgba(64, 158, 255, 0.7);
+    user-select: none;
   }
-}
-.icon-suo {
-  position: absolute;
-  top: 0;
-  right: 0;
+  .shape-point {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #409eff;
+    width: 8px;
+    height: 8px;
+    //   border-radius: 50%;
+    z-index: 1;
+  }
+  .icon-xiangyouxuanzhuan {
+    position: absolute;
+    top: -34px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: grab;
+    color: #409eff;
+    font-size: 20px;
+    font-weight: 600;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+  .icon-suo {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 </style>

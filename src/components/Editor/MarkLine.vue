@@ -250,7 +250,8 @@ export default {
   height: 100%;
 }
 .line {
-  background: #59c7f9;
+  // background: #59c7f9;
+  background: #4AFFFF;
   position: absolute;
   z-index: 1000;
 }

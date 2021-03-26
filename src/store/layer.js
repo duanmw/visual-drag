@@ -1,6 +1,5 @@
 import { swap } from '@/utils/utils'
 import toast from '@/utils/toast'
-import store from './index'
 
 export default {
     mutations: {
@@ -26,8 +25,8 @@ export default {
         topComponent({ componentData, curComponentIndex }) {
             // 置顶
             if (curComponentIndex < componentData.length - 1) {
-                // swap(componentData, curComponentIndex, componentData.length - 1)
-                componentData.push(componentData.splice(curComponentIndex, 1)[0]); //立即触发视图更新
+                swap(componentData, curComponentIndex, componentData.length - 1)
+                // componentData.push(componentData.splice(curComponentIndex, 1)[0]); //立即触发视图更新
             } else {
                 toast('已经到顶了')
             }

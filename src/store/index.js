@@ -34,6 +34,7 @@ const data = {
         // 点击画布时是否点中组件，主要用于取消选中组件用。
         // 如果没点中组件，并且在画布空白处弹起鼠标，则取消当前组件的选中状态
         isClickComponent: false,
+        isDragRotating: false //是否有组件处于拖拽旋转中的状态
     },
     mutations: {
         ...animation.mutations,
@@ -47,6 +48,10 @@ const data = {
 
         setClickComponentStatus(state, status) {
             state.isClickComponent = status
+        },
+        // 设置是否有组件处于拖拽旋转中的状态
+        setDragRotating(state, status) {
+            state.isDragRotating = status
         },
 
         setEditMode(state, mode) {
@@ -68,13 +73,6 @@ const data = {
             if (width) curComponent.style.width = width
             if (height) curComponent.style.height = height
             if (rotate) curComponent.style.rotate = rotate
-            // if (top) {
-            //     Vue.set(curComponent, 'style', Object.assign(curComponent.style, { top: top }))
-            // }
-            // if (left) {
-            //     Vue.set(curComponent, 'style', Object.assign(curComponent.style, { left: left }))
-            // }
-
         },
 
         setShapeSingleStyle({ curComponent }, { key, value }) {

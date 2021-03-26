@@ -51,6 +51,7 @@
     <MarkLine />
     <!-- 选中区域 -->
     <Area :start="start" :width="width" :height="height" v-show="isShowArea" />
+    <DragTips></DragTips>
   </div>
 </template>
 
@@ -64,6 +65,7 @@ import MarkLine from "./MarkLine";
 import Area from "./Area";
 import eventBus from "@/utils/eventBus";
 import Grid from "./Grid";
+import DragTips from "./DragTips";
 import { changeStyleWithScale } from "@/utils/translate";
 
 export default {
@@ -73,7 +75,7 @@ export default {
       default: true
     }
   },
-  components: { Shape, ContextMenu, MarkLine, Area, Grid },
+  components: { Shape, ContextMenu, MarkLine, Area, Grid, DragTips },
   data() {
     return {
       editorX: 0,

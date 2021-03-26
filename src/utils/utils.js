@@ -1,6 +1,7 @@
+import Vue from 'vue'
 export function deepCopy(target) {
     if (typeof target == 'object') {
-        const result = Array.isArray(target)? [] : {}
+        const result = Array.isArray(target) ? [] : {}
         for (const key in target) {
             if (typeof target[key] == 'object') {
                 result[key] = deepCopy(target[key])
@@ -11,14 +12,17 @@ export function deepCopy(target) {
 
         return result
     }
-    
+
     return target
 }
 
 export function swap(arr, i, j) {
-    const temp = arr[i]
-    arr[i] = arr[j]
-    arr[j] = temp
+    const temp = arr[i];
+    // arr[i] = arr[j]
+    // arr[j] = temp
+    // arr.push(arr.splice(curComponentIndex, 1)[0]); //立即触发视图更新
+    Vue.set(arr, i, arr[j]);//立即触发视图更新
+    Vue.set(arr, j, temp);
 }
 
 export function $(selector) {
