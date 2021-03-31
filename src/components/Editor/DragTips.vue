@@ -41,10 +41,11 @@ export default {
 <style lang="scss" scoped>
 .drag-tips {
   position: absolute;
-  background: #f7f7f7;
+  font-size: 14px;
+  background: rgba(247, 247, 247, 0.7);
   border: 1px solid #cbcccc;
   border-radius: 4px;
-  padding: 4px 8px;
+  padding: 3px 7px;
   transform: translateX(-50%);
 }
 </style>

@@ -113,8 +113,9 @@ export default {
 
       // 如果元素没有移动，则不保存快照
       let hasMove = false;
+      let diffDeg = 2;// 角度差异，角度接近90°的倍数自动校正
       const move = moveEvent => {
-        this.$store.commit("setDragRotating", true);//旋转中
+        this.$store.commit("setDragRotating", true); //旋转中
         hasMove = true;
         const curX = moveEvent.clientX;
         const curY = moveEvent.clientY;
@@ -123,6 +124,14 @@ export default {
           Math.atan2(curY - centerY, curX - centerX) / (Math.PI / 180);
         // 获取旋转的角度值
         pos.rotate = startRotate + rotateDegreeAfter - rotateDegreeBefore;
+        if (Math.abs(Math.round(pos.rotate / 90) * 90 - pos.rotate) <= diffDeg) {
+          //如果角度接近90°的倍数，直接转成90°的倍数
+          if (pos.rotate > 0) {
+            pos.rotate = Math.abs(Math.round(pos.rotate / 90) * 90);
+          } else if (pos.rotate < 0) {
+            pos.rotate = Math.round(pos.rotate / 90) * 90;
+          }
+        }
         // 修改当前组件样式
         this.$store.commit("setShapeStyle", pos);
       };

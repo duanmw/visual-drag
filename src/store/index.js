@@ -68,11 +68,11 @@ const data = {
         },
 
         setShapeStyle({ curComponent }, { top, left, width, height, rotate }) {
-            if (top) curComponent.style.top = top
-            if (left) curComponent.style.left = left
-            if (width) curComponent.style.width = width
-            if (height) curComponent.style.height = height
-            if (rotate) curComponent.style.rotate = rotate
+            if (typeof top === "number") curComponent.style.top = top
+            if (typeof left === "number") curComponent.style.left = left
+            if (typeof width === "number") curComponent.style.width = width
+            if (typeof height === "number") curComponent.style.height = height
+            if (typeof rotate === "number") curComponent.style.rotate = rotate
         },
 
         setShapeSingleStyle({ curComponent }, { key, value }) {

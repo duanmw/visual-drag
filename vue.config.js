@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/visual-drag/' : './',
-    lintOnSave: true
-}
+  publicPath: process.env.NODE_ENV === "production" ? "/visual-drag/" : "./",
+  lintOnSave: false
+};

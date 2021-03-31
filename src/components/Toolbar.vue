@@ -24,7 +24,7 @@
       </div>
       <div class="canvas-config">
         <span>画布比例</span>
-        <input v-model="scale" @input="handleScaleChange" /> %
+        <input v-model="scale" type="number" @input="handleScaleChange" /> %
       </div>
     </div>
 
@@ -210,7 +210,7 @@ export default {
     color: #606266;
 
     input {
-      width: 50px;
+      width: 55px;
       margin-left: 10px;
       outline: none;
       padding: 0 5px;
