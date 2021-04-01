@@ -9,15 +9,20 @@
       </section>
       <!-- 中间画布 -->
       <section class="center">
-        <div
+        <!-- <div
           class="content"
           @drop="handleDrop"
           @dragover="handleDragOver"
           @mousedown="handleMouseDown"
           @mouseup="deselectCurComponent"
-        >
-          <Editor />
-        </div>
+        > -->
+          <Editor 
+          @drop.native="handleDrop"
+          @dragover.native="handleDragOver"
+          @mousedown.native="handleMouseDown"
+          @mouseup.native="deselectCurComponent"
+          />
+        <!-- </div> -->
       </section>
       <!-- 右侧属性列表 -->
       <section class="right">
@@ -169,7 +174,7 @@ export default {
       background: #f5f5f5;
       height: 100%;
       overflow: auto;
-      padding: 20px;
+      // padding: 20px;
 
       .content {
         width: 100%;

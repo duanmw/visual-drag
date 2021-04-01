@@ -1,7 +1,7 @@
 <template>
   <div
+    ref="editor"
     class="editor"
-    id="editor"
     :class="{ edit: isEdit }"
     :style="{
             width: changeStyleWithScale(canvasStyleData.width) + 'px',
@@ -98,7 +98,7 @@ export default {
   ]),
   mounted() {
     // 获取编辑器元素
-    this.$store.commit("getEditor");
+    this.$store.commit("setEditor", this.$refs.editor);
 
     eventBus.$on("hideArea", () => {
       this.hideArea();
@@ -306,7 +306,8 @@ export default {
 .editor {
   position: relative;
   background: #fff;
-  margin: auto;
+  display: inline-block;//因为父元素是有滚动条的，必须inline-block右边距才生效
+  margin: 30px;
 
   .lock {
     opacity: 0.5;

@@ -18,9 +18,9 @@
       <el-button @click="unlock" :disabled="!curComponent || !curComponent.isLock">解锁</el-button>
       <div class="canvas-config">
         <span>画布大小</span>
-        <input v-model="canvasStyleData.width" />
+        <input v-model="canvasStyleData.width"  type="number"/>
         <span>*</span>
-        <input v-model="canvasStyleData.height" />
+        <input v-model="canvasStyleData.height"  type="number"/>
       </div>
       <div class="canvas-config">
         <span>画布比例</span>
@@ -210,7 +210,7 @@ export default {
     color: #606266;
 
     input {
-      width: 55px;
+      width: 65px;
       margin-left: 10px;
       outline: none;
       padding: 0 5px;

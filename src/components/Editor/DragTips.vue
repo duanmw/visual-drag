@@ -24,8 +24,10 @@ export default {
         let rotate = this.$store.state.curComponent.style.rotate;
         if (rotate < 0) {
           rotate = 360 + rotate;
+        } else if (rotate > 360) {
+          rotate = Math.abs(rotate - 360);
         }
-        rotate = rotate.toFixed(0);
+        rotate = rotate.toFixed(0); //角度保留整数
         return {
           top: top + height + this.distance + "px",
           left: left + width / 2 + "px",

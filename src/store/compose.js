@@ -19,8 +19,9 @@ export default {
         editor: null,
     },
     mutations: {
-        getEditor(state) {
-            state.editor = $('#editor')
+        setEditor(state, data) {
+            // state.editor = $('#editor')
+            state.editor = data;
         },
 
         setAreaData(state, data) {

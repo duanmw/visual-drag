@@ -110,15 +110,15 @@ export default {
     padding: 6px 0;
 
     li {
-      font-size: 14px;
+      font-size: 13px;
       padding: 0 20px;
       position: relative;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       color: #606266;
-      height: 34px;
-      line-height: 34px;
+      height: 28px;
+      line-height: 28px;
       box-sizing: border-box;
       cursor: pointer;
 
